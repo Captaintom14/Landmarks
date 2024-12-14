@@ -8,6 +8,7 @@
 @Observable
 class ModelData{
     var landmarks: [Landmark] = load (_filename: "landmarkData.json")
+    var hikes: [Hike] = load (_filename: "hikeData.json")
 }
 
 
