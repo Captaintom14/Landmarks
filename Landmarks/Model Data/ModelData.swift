@@ -5,6 +5,12 @@
 //  Created by Thomas Mejia on 2024-12-11.
 //
 
+@Observable
+class ModelData{
+    var landmarks: [Landmark] = load (_filename: "landmarkData.json")
+}
+
+
 import Foundation
 
 var landmarks: [Landmark] = load (_filename: "landmarkData.json")
