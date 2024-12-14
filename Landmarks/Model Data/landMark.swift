@@ -15,12 +15,22 @@ struct Landmark: Hashable, Codable, Identifiable {
     var state: String
     var description: String
     var isFavorite: Bool;
+    var isFeatured: Bool;
+    
 
     private var imageName: String
     var image: Image {
         Image(imageName)
     }
 
+    var category: Category
+    
+    enum Category: String, CaseIterable, Codable{
+        case lakes = "Lakes"
+        case rivers = "Rivers"
+        case mountains = "Mountains"
+    }
+    
     private var coordinates: Coordinates
     var locationCoordinates: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
@@ -29,18 +39,6 @@ struct Landmark: Hashable, Codable, Identifiable {
     struct Coordinates: Hashable, Codable {
         var latitude: Double
         var longitude: Double
-    }
-
-    // Map JSON keys to struct properties
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case park
-        case state
-        case description
-        case isFavorite
-        case imageName = "imageName"
-        case coordinates
     }
 }
 
